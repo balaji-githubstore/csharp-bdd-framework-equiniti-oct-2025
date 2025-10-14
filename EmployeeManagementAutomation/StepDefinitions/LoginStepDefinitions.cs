@@ -1,0 +1,47 @@
+using System;
+using Reqnroll;
+
+namespace EmployeeManagementAutomation.StepDefinitions
+{
+    [Binding]
+    public class LoginStepDefinitions
+    {
+        [Given("I have browser with Orange HRM application")]
+        public void GivenIHaveBrowserWithOrangeHRMApplication()
+        {
+            Console.WriteLine("given");
+        }
+
+        [When("I enter username as {string}")]
+        public void WhenIEnterUsernameAs(string username)
+        {
+            Console.WriteLine(username);
+        }
+
+        [When("I enter password as {string}")]
+        public void WhenIEnterPasswordAs(string password)
+        {
+            Console.WriteLine(password);
+        }
+
+        [When("I click on login")]
+        public void WhenIClickOnLogin()
+        {
+            Console.WriteLine("login");
+        }
+
+        [Then("I should access to portal with header as {string}")]
+        public void ThenIShouldAccessToPortalWithHeaderAs(string expectedValue)
+        {
+            Console.WriteLine(expectedValue);
+        }
+
+        [Then("I should not get access with error {string}")]
+        public void ThenIShouldNotGetAccessWithError(string expectedError)
+        {
+            Console.WriteLine(expectedError);
+        }
+
+    }
+
+}
