@@ -9,7 +9,7 @@ namespace EmployeeManagementAutomation.StepDefinitions
         [Given("I have browser with Orange HRM application")]
         public void GivenIHaveBrowserWithOrangeHRMApplication()
         {
-            Console.WriteLine("given");
+            Console.WriteLine("given browser");
         }
 
         [When("I enter username as {string}")]
