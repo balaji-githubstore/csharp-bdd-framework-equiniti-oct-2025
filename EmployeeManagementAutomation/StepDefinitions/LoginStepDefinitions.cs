@@ -15,7 +15,7 @@ namespace EmployeeManagementAutomation.StepDefinitions
         [When("I enter username as {string}")]
         public void WhenIEnterUsernameAs(string username)
         {
-            Console.WriteLine(username);
+            Console.WriteLine("when"+username);
         }
 
         [When("I enter password as {string}")]
