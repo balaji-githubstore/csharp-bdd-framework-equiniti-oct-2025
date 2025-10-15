@@ -113,14 +113,14 @@ namespace EmployeeManagementAutomation.Features
         [global::NUnit.Framework.DescriptionAttribute("AddValidEmployeeTest")]
         [global::NUnit.Framework.TestCaseAttribute("Admin", "admin123", "john", "w", "wick", "0", null)]
         [global::NUnit.Framework.TestCaseAttribute("Admin", "admin123", "jack", "w", "ken", "1", null)]
-        public async global::System.Threading.Tasks.Task AddValidEmployeeTest(string username, string password, string fname, string middlename, string lname, string @__pickleIndex, string[] exampleTags)
+        public async global::System.Threading.Tasks.Task AddValidEmployeeTest(string username, string password, string fname, string middle_Name, string lname, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("username", username);
             argumentsOfScenario.Add("password", password);
             argumentsOfScenario.Add("fname", fname);
-            argumentsOfScenario.Add("middlename", middlename);
+            argumentsOfScenario.Add("middle_name", middle_Name);
             argumentsOfScenario.Add("lname", lname);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("AddValidEmployeeTest", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
@@ -160,8 +160,8 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                             "lastname"});
                 table1.AddRow(new string[] {
                             string.Format("{0}", fname),
-                            string.Format("{0}", middlename),
-                            "<lastname>"});
+                            string.Format("{0}", middle_Name),
+                            string.Format("{0}", lname)});
 #line 14
  await testRunner.AndAsync("User fill the employee form", ((string)(null)), table1, "And ");
 #line hidden

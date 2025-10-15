@@ -12,14 +12,14 @@ Scenario Outline: AddValidEmployeeTest
 	And User click on PIM menu
 	And User click on Add Employee menu
 	And User fill the employee form
-		| firstname | middle_name  | lastname |
-		| <fname>   | <middlename> | <lname>  |
+		| firstname | middle_name   | lastname |
+		| <fname>   | <middle_name> | <lname>  |
 	And User click on save employee
 	Then User should get the added profile name "<fname> <lname>"
 	And User should verify the firstname field contains "<fname>"
 Examples:
-	| username | password | fname | middlename | lname |
-	| Admin    | admin123 | john  | w          | wick  |
-	| Admin    | admin123 | jack  | w          | ken   |
+	| username | password | fname | middle_name | lname |
+	| Admin    | admin123 | john  | w           | wick  |
+	| Admin    | admin123 | jack  | w           | ken   |
 
 	
