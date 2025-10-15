@@ -1,6 +1,8 @@
 using EmployeeManagementAutomation.Hooks;
+using EmployeeManagementAutomation.Pages;
 using Io.Cucumber.Messages.Types;
 using Microsoft.Playwright;
+using NUnit.Framework;
 using Reqnroll;
 using System;
 using System.Threading.Tasks;
@@ -10,13 +12,18 @@ namespace EmployeeManagementAutomation.StepDefinitions
     [Binding]
     public class LoginStepDefinitions
     {
-      
+
+        private LoginPage _loginPage;
+        public LoginStepDefinitions(LoginPage loginPage)
+        {
+           _loginPage = loginPage;
+        }
 
         [Given("User have browser with Orange HRM application")]
         [Given("I have browser with Orange HRM application")]
         public async Task GivenIHaveBrowserWithOrangeHRMApplicationAsync()
         {
-            
+            await _loginPage.NavigateToUrl();
         }
 
 
@@ -24,22 +31,22 @@ namespace EmployeeManagementAutomation.StepDefinitions
         [When("I enter username as {string}")]
         public async Task WhenIEnterUsernameAs(string username)
         {
-           
+           await _loginPage.EnterUsername(username);
         }
 
         [When("User enter password as {string}")]
         [When("I enter password as {string}")]
-        public void WhenIEnterPasswordAs(string password)
+        public async Task WhenIEnterPasswordAs(string password)
         {
-            Console.WriteLine(password);
+            await _loginPage.EnterPassword(password);
         }
 
 
         [When("User click on login")]
         [When("I click on login")]
-        public void WhenIClickOnLogin()
+        public async Task WhenIClickOnLogin()
         {
-            Console.WriteLine("login");
+            await _loginPage.ClickOnLogin();
         }
 
 
@@ -50,9 +57,10 @@ namespace EmployeeManagementAutomation.StepDefinitions
         }
 
         [Then("I should not get access with error {string}")]
-        public void ThenIShouldNotGetAccessWithError(string expectedError)
+        public async Task ThenIShouldNotGetAccessWithError(string expectedError)
         {
-            Console.WriteLine(expectedError);
+            string actualError =await _loginPage.GetInvalidErrorString();
+            Assert.That(actualError, Is.EqualTo(expectedError));
         }
 
     }
