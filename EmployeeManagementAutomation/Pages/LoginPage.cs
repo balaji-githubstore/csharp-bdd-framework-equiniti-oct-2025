@@ -15,9 +15,8 @@ namespace EmployeeManagementAutomation.Pages
         private AutomationHooks _hooks;
         public LoginPage(AutomationHooks hooks)
         {
-            _hooks=hooks;
+            _hooks = hooks;
         }
-
 
         public async Task NavigateToUrl()
         {
