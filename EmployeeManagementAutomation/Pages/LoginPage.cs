@@ -35,9 +35,17 @@ namespace EmployeeManagementAutomation.Pages
         }
 
         //ClickOnLogin
+        public async Task ClickOnLogin()
+        {
+            await _hooks.PageInstance.Locator("xpath=//button[normalize-space()='Login']").ClickAsync();
+        }
 
 
         //GetInvalidErrorMessage
+        public async Task<string> GetInvalidErrorString()
+        {
+            return await _hooks.PageInstance.Locator("xpath=//p[contains(normalize-space(),'Invalid')]").InnerTextAsync();
+        }
 
     }
 }
