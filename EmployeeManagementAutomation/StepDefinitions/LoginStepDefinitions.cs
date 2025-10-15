@@ -7,13 +7,13 @@ namespace EmployeeManagementAutomation.StepDefinitions
     public class LoginStepDefinitions
     {
 
-
         [Given("User have browser with Orange HRM application")]
         [Given("I have browser with Orange HRM application")]
         public void GivenIHaveBrowserWithOrangeHRMApplication()
         {
             Console.WriteLine("given");
         }
+
 
         [When("User enter username as {string}")]
         [When("I enter username as {string}")]

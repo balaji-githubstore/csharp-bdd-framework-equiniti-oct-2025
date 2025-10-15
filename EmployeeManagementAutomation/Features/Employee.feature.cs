@@ -144,6 +144,29 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 12
  await testRunner.AndAsync("User click on PIM menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
+#line 13
+ await testRunner.AndAsync("User click on Add Employee menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "firstname",
+                            "middle_name",
+                            "lastname"});
+                table1.AddRow(new string[] {
+                            "jack",
+                            "w",
+                            "wick"});
+#line 14
+ await testRunner.AndAsync("User fill the employee form", ((string)(null)), table1, "And ");
+#line hidden
+#line 17
+ await testRunner.AndAsync("User click on save employee", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 18
+ await testRunner.ThenAsync("User should get the added profile name \"jack wick\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 19
+ await testRunner.AndAsync("User should verify the firstname field contains \"jack\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }
