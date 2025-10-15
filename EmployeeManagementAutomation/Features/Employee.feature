@@ -10,5 +10,12 @@ Scenario: AddValidEmployeeTest
 	And User enter password as "admin123"
 	And User click on login
 	And User click on PIM menu
-	# click pim-->add employee --> add fname, mname,lastname and save 
+	And User click on Add Employee menu
+	And User fill the employee form
+		| firstname | middle_name | lastname |
+		| jack      | w           | wick     |
+	And User click on save employee
+	Then User should get the added profile name "jack wick"
+	And User should verify the firstname field contains "jack"
+
 	

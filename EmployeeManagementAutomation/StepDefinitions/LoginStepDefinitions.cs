@@ -24,7 +24,7 @@ namespace EmployeeManagementAutomation.StepDefinitions
 
         [When("User enter password as {string}")]
         [When("I enter password as {string}")]
-        public void WhenIEnterPasswordAs(string password="Welcome123")
+        public void WhenIEnterPasswordAs(string password)
         {
             Console.WriteLine(password);
         }
