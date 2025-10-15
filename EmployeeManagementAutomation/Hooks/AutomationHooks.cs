@@ -16,7 +16,7 @@ namespace EmployeeManagementAutomation.Hooks
         private IPlaywright PlaywrightInstance { get; set; }
         private IBrowser BrowserInstance { get; set; }
         private IBrowserContext BrowserContextInstance { get; set; }
-        public static IPage PageInstance { get; set; }
+        public IPage PageInstance { get; set; }
 
 
         [BeforeScenario]
