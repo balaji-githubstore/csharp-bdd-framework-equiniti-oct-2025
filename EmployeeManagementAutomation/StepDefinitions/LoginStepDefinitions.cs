@@ -1,4 +1,7 @@
 using System;
+using System.Threading.Tasks;
+using EmployeeManagementAutomation.Hooks;
+using Microsoft.Playwright;
 using Reqnroll;
 
 namespace EmployeeManagementAutomation.StepDefinitions
@@ -9,17 +12,17 @@ namespace EmployeeManagementAutomation.StepDefinitions
 
         [Given("User have browser with Orange HRM application")]
         [Given("I have browser with Orange HRM application")]
-        public void GivenIHaveBrowserWithOrangeHRMApplication()
+        public async Task GivenIHaveBrowserWithOrangeHRMApplicationAsync()
         {
-            Console.WriteLine("given");
+            await AutomationHooks.PageInstance.GotoAsync("https://opensource-demo.orangehrmlive.com/", new() { WaitUntil = WaitUntilState.Load, Timeout = 0 });
         }
 
 
         [When("User enter username as {string}")]
         [When("I enter username as {string}")]
-        public void WhenIEnterUsernameAs(string username)
+        public async Task WhenIEnterUsernameAs(string username)
         {
-            Console.WriteLine("when"+username);
+            await AutomationHooks.PageInstance.Locator("xpath=//input[@name='username']").FillAsync(username);
         }
 
         [When("User enter password as {string}")]

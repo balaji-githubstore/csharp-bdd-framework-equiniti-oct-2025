@@ -13,11 +13,11 @@ namespace EmployeeManagementAutomation.Hooks
     [Binding]
     public class AutomationHooks
     {
-        private IPlaywright? PlaywrightInstance { get; set; }
+        private IPlaywright PlaywrightInstance { get; set; }
         private IBrowser BrowserInstance { get; set; }
         private IBrowserContext BrowserContextInstance { get; set; }
+        public static IPage PageInstance { get; set; }
 
-        private IPage PageInstance { get; set; }
 
         [BeforeScenario]
         public async Task RunBeforeScenarioAsync()
@@ -26,6 +26,8 @@ namespace EmployeeManagementAutomation.Hooks
             BrowserInstance = await PlaywrightInstance.Chromium.LaunchAsync(new() { Headless = false, Channel = "chrome" });
             BrowserContextInstance = await BrowserInstance.NewContextAsync();
             PageInstance = await BrowserContextInstance.NewPageAsync();
+
+
         }
 
         [AfterScenario]

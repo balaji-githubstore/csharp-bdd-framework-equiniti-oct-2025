@@ -1,10 +1,11 @@
 using System;
+using EmployeeManagementAutomation.Hooks;
 using Reqnroll;
 
 namespace EmployeeManagementAutomation.StepDefinitions
 {
     [Binding]
-    public class EmployeeStepDefinitions
+    public class EmployeeStepDefinitions 
     {
         [When("User click on PIM menu")]
         public void WhenUserClickOnPIMMenu()
