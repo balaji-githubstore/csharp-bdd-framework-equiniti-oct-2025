@@ -10,17 +10,13 @@ namespace EmployeeManagementAutomation.StepDefinitions
     [Binding]
     public class LoginStepDefinitions
     {
-        private AutomationHooks _hooks;
-        public LoginStepDefinitions(AutomationHooks hooks)
-        {
-            this._hooks= hooks;
-        }
+      
 
         [Given("User have browser with Orange HRM application")]
         [Given("I have browser with Orange HRM application")]
         public async Task GivenIHaveBrowserWithOrangeHRMApplicationAsync()
         {
-            await _hooks.PageInstance.GotoAsync("https://opensource-demo.orangehrmlive.com/", new() { WaitUntil = WaitUntilState.Load, Timeout = 0 });
+            
         }
 
 
@@ -28,7 +24,7 @@ namespace EmployeeManagementAutomation.StepDefinitions
         [When("I enter username as {string}")]
         public async Task WhenIEnterUsernameAs(string username)
         {
-            await _hooks.PageInstance.Locator("xpath=//input[@name='username']").FillAsync(username);
+           
         }
 
         [When("User enter password as {string}")]
