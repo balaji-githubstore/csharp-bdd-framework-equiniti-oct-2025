@@ -4,18 +4,22 @@ As an user
 I would like to add, edit, delete employee records
 
 
-Scenario: AddValidEmployeeTest
+Scenario Outline: AddValidEmployeeTest
 	Given User have browser with Orange HRM application
-	When User enter username as "Admin"
-	And User enter password as "admin123"
+	When User enter username as "<username>"
+	And User enter password as "<password>"
 	And User click on login
 	And User click on PIM menu
 	And User click on Add Employee menu
 	And User fill the employee form
-		| firstname | middle_name | lastname |
-		| jack      | w           | wick     |
+		| firstname | middle_name  | lastname |
+		| <fname>   | <middlename> | <lname>  |
 	And User click on save employee
-	Then User should get the added profile name "jack wick"
-	And User should verify the firstname field contains "jack"
+	Then User should get the added profile name "<fname> <lname>"
+	And User should verify the firstname field contains "<fname>"
+Examples:
+	| username | password | fname | middlename | lname |
+	| Admin    | admin123 | john  | w          | wick  |
+	| Admin    | admin123 | jack  | w          | ken   |
 
 	

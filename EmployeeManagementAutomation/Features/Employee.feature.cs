@@ -106,16 +106,23 @@ namespace EmployeeManagementAutomation.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Employee.feature.ndjson", 3);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Employee.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("AddValidEmployeeTest")]
-        public async global::System.Threading.Tasks.Task AddValidEmployeeTest()
+        [global::NUnit.Framework.TestCaseAttribute("Admin", "admin123", "john", "w", "wick", "0", null)]
+        [global::NUnit.Framework.TestCaseAttribute("Admin", "admin123", "jack", "w", "ken", "1", null)]
+        public async global::System.Threading.Tasks.Task AddValidEmployeeTest(string username, string password, string fname, string middlename, string lname, string @__pickleIndex, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "0";
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("fname", fname);
+            argumentsOfScenario.Add("middlename", middlename);
+            argumentsOfScenario.Add("lname", lname);
+            string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("AddValidEmployeeTest", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
@@ -133,10 +140,10 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.GivenAsync("User have browser with Orange HRM application", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
- await testRunner.WhenAsync("User enter username as \"Admin\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync(string.Format("User enter username as \"{0}\"", username), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
- await testRunner.AndAsync("User enter password as \"admin123\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync(string.Format("User enter password as \"{0}\"", password), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 11
  await testRunner.AndAsync("User click on login", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -152,9 +159,9 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                             "middle_name",
                             "lastname"});
                 table1.AddRow(new string[] {
-                            "jack",
-                            "w",
-                            "wick"});
+                            string.Format("{0}", fname),
+                            string.Format("{0}", middlename),
+                            "<lastname>"});
 #line 14
  await testRunner.AndAsync("User fill the employee form", ((string)(null)), table1, "And ");
 #line hidden
@@ -162,10 +169,10 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.AndAsync("User click on save employee", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 18
- await testRunner.ThenAsync("User should get the added profile name \"jack wick\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync(string.Format("User should get the added profile name \"{0} {1}\"", fname, lname), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 19
- await testRunner.AndAsync("User should verify the firstname field contains \"jack\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync(string.Format("User should verify the firstname field contains \"{0}\"", fname), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
