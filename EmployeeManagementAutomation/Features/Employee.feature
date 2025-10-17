@@ -1,9 +1,10 @@
-﻿Feature: Employee
+﻿@regression
+Feature: Employee
 In order to manage the employee records
 As an user
 I would like to add, edit, delete employee records
 
-
+@employee
 Scenario Outline: AddValidEmployeeTest
 	Given User have browser with Orange HRM application
 	When User enter username as "<username>"

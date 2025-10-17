@@ -1,9 +1,10 @@
-﻿Feature: Login
+﻿@regression
+Feature: Login
 In order to manage the employee records
 As an user
 I want to login to the dashboard
 
-
+@smoke  @valid
 Scenario: ValidLoginTest
 	Given I have browser with Orange HRM application
 	When I enter username as "Admin"
@@ -11,6 +12,7 @@ Scenario: ValidLoginTest
 	And I click on login
 	Then I should access to portal with header as "Time at Work"
 
+	@invalid
 Scenario Outline: InvalidLoginTest
 	Given I have browser with Orange HRM application
 	When I enter username as "<username>"
