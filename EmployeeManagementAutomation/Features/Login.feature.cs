@@ -108,17 +108,15 @@ namespace EmployeeManagementAutomation.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Login.feature.ndjson", 5);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Login.feature.ndjson", 6);
         }
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("ValidLoginTest")]
-        [global::NUnit.Framework.CategoryAttribute("smoke")]
         [global::NUnit.Framework.CategoryAttribute("valid")]
         public async global::System.Threading.Tasks.Task ValidLoginTest()
         {
             string[] tagsOfScenario = new string[] {
-                    "smoke",
                     "valid"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
@@ -157,12 +155,14 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("InvalidLoginTest")]
         [global::NUnit.Framework.CategoryAttribute("invalid")]
+        [global::NUnit.Framework.CategoryAttribute("smoke")]
         [global::NUnit.Framework.TestCaseAttribute("john", "john123", "Invalid credentials", "1", null)]
         [global::NUnit.Framework.TestCaseAttribute("saul", "saul123", "Invalid credentials", "2", null)]
         public async global::System.Threading.Tasks.Task InvalidLoginTest(string username, string password, string expected_Error, string @__pickleIndex, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "invalid"};
+                    "invalid",
+                    "smoke"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -200,6 +200,34 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
 #line 21
  await testRunner.ThenAsync(string.Format("I should not get access with error \"{0}\"", expected_Error), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::NUnit.Framework.TestAttribute()]
+        [global::NUnit.Framework.DescriptionAttribute("ValidLoginTest3")]
+        public async global::System.Threading.Tasks.Task ValidLoginTest3()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "3";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("ValidLoginTest3", "", tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 28
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 30
+ await testRunner.WhenAsync("I Feed data from excel \"testdata/orange-test-data.xlsx\" with sheet as \"InvalidLog" +
+                        "inTest\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

@@ -34,6 +34,7 @@ namespace EmployeeManagementAutomation.Hooks
         public void RunAfterScenario()
         {
             PlaywrightInstance.Dispose();
+
         }
     }
 }

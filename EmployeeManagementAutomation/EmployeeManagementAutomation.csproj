@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="ExtentReports" Version="5.0.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
     <PackageReference Include="Microsoft.Playwright" Version="1.55.0" />
     <PackageReference Include="Reqnroll.NUnit" Version="3.1.2" />
@@ -16,7 +18,12 @@
 
   <ItemGroup>
     <Folder Include="Features\" />
-    <Folder Include="Support\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestData\orange-test-data.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

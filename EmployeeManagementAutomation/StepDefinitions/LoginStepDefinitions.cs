@@ -1,5 +1,6 @@
 using EmployeeManagementAutomation.Hooks;
 using EmployeeManagementAutomation.Pages;
+using EmployeeManagementAutomation.Utilities;
 using Io.Cucumber.Messages.Types;
 using Microsoft.Playwright;
 using NUnit.Framework;
@@ -61,6 +62,13 @@ namespace EmployeeManagementAutomation.StepDefinitions
         {
             string actualError =await _loginPage.GetInvalidErrorString();
             Assert.That(actualError, Is.EqualTo(expectedError));
+        }
+
+        [When("I Feed data from excel {string} with sheet as {string}")]
+        public void WhenIFeedDataFromExcelWithSheetAs(string file, string sheetName)
+        {
+            object[] data=ExcelSource.GetSheetIntoObjectArray(file, sheetName);
+            Console.WriteLine(data);
         }
 
     }

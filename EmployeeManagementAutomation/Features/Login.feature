@@ -24,3 +24,7 @@ Examples:
 	| john     | john123  | Invalid credentials |
 	| saul     | saul123  | Invalid credentials |
 
+
+Scenario: ValidLoginTest3
+	#Given I have browser with Orange HRM application
+	When I Feed data from excel "testdata/orange-test-data.xlsx" with sheet as "InvalidLoginTest" 
